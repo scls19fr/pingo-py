@@ -1,5 +1,7 @@
 import pingo
 from pingo.compat import iteritems
+from pingo.board import State
+
 
 class GhostBoard(
     pingo.Board,
@@ -68,12 +70,12 @@ class GhostBoard(
 
     def _set_pin_state(self, pin, state):
         print('GhostBoard: %r state -> %s' % (pin, state))
-        _state = 1 if state == pingo.HIGH else 0
+        _state = 1 if state == State.HIGH else 0
         self._pin_states[pin.location] = _state
 
     def _get_pin_state(self, pin):
         state = self._pin_states[pin.location]
-        return pingo.HIGH if state else pingo.LOW
+        return State.HIGH if state else State.LOW
 
     def _get_pin_value(self, pin):
         return self._pin_states[pin.location]

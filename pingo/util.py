@@ -1,6 +1,7 @@
 import collections
 from .compat import (UserDict, iterkeys)
 
+
 class StrKeyDict(UserDict):
     """StrKeyDict always converts non-string keys to `str`
 
